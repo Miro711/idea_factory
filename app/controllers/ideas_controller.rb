@@ -15,6 +15,7 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @reviews = @idea.reviews.order(created_at: :desc)
   end
 
   def index
