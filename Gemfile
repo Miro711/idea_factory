@@ -40,6 +40,10 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'hirb'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'factory_bot_rails'
 end
 
 group :development do
