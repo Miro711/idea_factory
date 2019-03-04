@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :authorize!, only: [:destroy]
+
   def create
     @idea = Idea.find(params[:idea_id])
     @review = Review.new review_params
@@ -25,4 +27,9 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:body)
   end
+
+  def authorize!
+    redirect_to root_path, alert: "Access Denied" unless can? :crud, @review
+  end
+
 end
