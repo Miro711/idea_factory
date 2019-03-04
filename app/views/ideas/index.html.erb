@@ -2,6 +2,9 @@
 <h1>All Ideas</h1>
  <% @ideas.each do |idea|  %>
   <ul>
-    <li><%= link_to idea.title, idea_path(idea) %></li>
+    <li>
+      <a href=""><i class="fa fa-plus-square-o"></i></a>
+      <%= link_to idea.title, idea_path(idea) %>
+    </li>
   </ul>
 <% end %>
