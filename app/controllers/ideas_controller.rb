@@ -22,6 +22,10 @@ class IdeasController < ApplicationController
         @ideas = Idea.order(created_at: :DESC)
     end
     
-    
+    def destroy
+        @idea = Idea.find(params[:id])
+        @idea.destroy
+        redirect_to ideas_path
+    end
 
 end
