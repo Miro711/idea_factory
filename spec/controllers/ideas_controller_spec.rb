@@ -36,6 +36,11 @@ RSpec.describe IdeasController, type: :controller do
         post :create, params: { idea: FactoryBot.attributes_for(:idea) }
         expect(response).to redirect_to new_session_path
       end
+
+      it "sets a flash danger message" do
+        post :create, params: { idea: FactoryBot.attributes_for(:idea) }
+        expect(flash[:alert]).to be
+      end
     end
 
     context "with user signed in" do
