@@ -1,12 +1,17 @@
 
-console.log("Hello!")
+//console.log("Hello!")
 
-document.querySelectorAll('i.fa').forEach((node) =>
+document.addEventListener('DOMContentLoaded', (event) => {
+  document.querySelectorAll('i').forEach((node) =>
 		node.addEventListener('click', (event) => {
-            console.log('Page has been clicked!');
-            //const descriptionNode = document.createElement('p');
-            //const h1 = document.createElement('h1');
-            //h1.innerText = `${@idea.description}`;
-            //descriptionNode.append(h1);
-          })
-);
+          const pNode = event.target.parentElement.parentElement.children[1];
+          if (pNode.style.display === "none") {
+            pNode.style.display = "block";
+            node.setAttribute('class','fa fa-minus-square')
+          } else {
+            pNode.style.display = "none";
+            node.setAttribute('class','fa fa-plus-square')
+          } 
+        })
+  );
+});
