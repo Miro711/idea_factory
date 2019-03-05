@@ -7,6 +7,9 @@
       <div class="card-body">
         <h5 class="card-title"><i class="fa fa-plus-square"></i> <%= link_to idea.title, idea_path(idea.id), class:"text-primary" %></h5>
         <p style="display: none"> <%= idea.description %> </p>
+        <small>
+        <p>By: <%= idea.user&.full_name || 'DELETED USER' %></p>
+        </small>
       </div>
     </div>
   </div>
